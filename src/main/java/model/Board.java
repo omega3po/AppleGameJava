@@ -28,6 +28,20 @@ public class Board implements BoardInterface {
     }
   }
 
+  /**
+   * constructor with no argument.
+   */
+  public Board() {
+    this.rows = 10;
+    this.cols = 17;
+    this.board = new Apple[rows][cols];
+    for (int i = 0; i < rows; i++) {
+      for (int j = 0; j < cols; j++) {
+        board[i][j] = new Apple();
+      }
+    }
+  }
+
   @Override
   public AppleInterface[][] getBoard() {
     AppleInterface[][] copy = new AppleInterface[this.rows][this.cols];
