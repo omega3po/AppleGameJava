@@ -30,7 +30,12 @@ public class Board implements BoardInterface {
 
   @Override
   public AppleInterface[][] getBoard() {
-    return this.board;
+    AppleInterface[][] copy = new AppleInterface[this.rows][this.cols];
+    for (int i = 0; i < this.rows; i++) {
+      System.arraycopy(this.board[i], 0, copy[i], 0, this.cols);
+    }
+
+    return copy;
   }
 
   @Override
@@ -41,7 +46,9 @@ public class Board implements BoardInterface {
     int total = 0;
     for (int i = leftTopRow; i <= rightBottomRow; i++) {
       for (int j = leftTopCol; j <= rightBottomCol; j++) {
-        total += board[i][j].getNum();
+        if (board[i][j] != null) {
+          total += board[i][j].getNum();
+        }
       }
     }
 
@@ -61,11 +68,11 @@ public class Board implements BoardInterface {
 
   private void checkForValidCoordinate(int leftTopRow, int leftTopCol, int rightBottomRow,
                                        int rightBottomCol) {
+    if (leftTopRow < 0 || leftTopCol < 0 || rightBottomRow >= rows || rightBottomCol >= cols) {
+      throw new IllegalArgumentException("out of bounds");
+    }
     if (leftTopRow > rightBottomRow || leftTopCol > rightBottomCol) {
       throw new IllegalArgumentException("leftTop should be smaller than rightBottom");
-    }
-    if (leftTopRow < 0 || leftTopCol < 0 || rightBottomRow > rows || rightBottomCol > cols) {
-      throw new IllegalArgumentException("out of bounds");
     }
   }
 }
