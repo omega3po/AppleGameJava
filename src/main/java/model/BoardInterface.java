@@ -13,6 +13,29 @@ public interface BoardInterface {
   AppleInterface[][] getBoard();
 
   /**
+   * get the number of rows of the board.
+   *
+   * @return the number of rows of the board.
+   */
+  int getRows();
+
+  /**
+   * get the number of cols of the board.
+   *
+   * @return the number of cols of the board.
+   */
+  int getCols();
+
+  /**
+   * return the apple of the provided position.
+   *
+   * @param row is row.
+   * @param col is col.
+   * @return the apple of the provided position.
+   */
+  AppleInterface getApple(int row, int col);
+
+  /**
    * get the total number in the rectangular portion.
    *
    * @param leftTopRow     row coordinate of left top of the rectangular portion.

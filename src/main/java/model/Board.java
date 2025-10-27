@@ -43,6 +43,24 @@ public class Board implements BoardInterface {
   }
 
   @Override
+  public AppleInterface getApple(int row, int col) {
+    if (row < 0 || col < 0 || row >= rows || col >= cols) {
+      throw new IllegalArgumentException("Index out of bounds");
+    }
+    return this.board[row][col];
+  }
+
+  @Override
+  public int getRows() {
+    return this.rows;
+  }
+
+  @Override
+  public int getCols() {
+    return this.cols;
+  }
+
+  @Override
   public AppleInterface[][] getBoard() {
     AppleInterface[][] copy = new AppleInterface[this.rows][this.cols];
     for (int i = 0; i < this.rows; i++) {

@@ -11,4 +11,11 @@ public interface AppleInterface {
    * @return the number of this apple.
    */
   int getNum();
+
+  /**
+   * return the number in string.
+   *
+   * @return the number in string.
+   */
+  String toString();
 }

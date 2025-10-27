@@ -29,7 +29,7 @@ public class AppleGameManager implements GameManager {
   }
 
   @Override
-  public BoardInterface getBoard() {
-    return this.board;
+  public AppleInterface[][] getBoard() {
+    return this.board.getBoard();
   }
 }

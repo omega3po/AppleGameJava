@@ -26,5 +26,5 @@ public interface GameManager {
    *
    * @return the board of the game for the view.
    */
-  BoardInterface getBoard();
+  AppleInterface[][] getBoard();
 }
